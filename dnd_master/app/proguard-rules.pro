@@ -1,0 +1,6 @@
+-keep class com.dndmaster.models.** { *; }
+-keep class com.dndmaster.ai.** { *; }
+-keepattributes Signature
+-keepattributes *Annotation*
+-dontwarn okhttp3.**
+-dontwarn okio.**

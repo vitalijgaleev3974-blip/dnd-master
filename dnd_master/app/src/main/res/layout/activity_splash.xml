@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="@color/colorBackground">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="⚔️"
+        android:textSize="80sp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="DnD Master"
+        android:textSize="36sp"
+        android:textColor="@color/colorAccentGold"
+        android:textStyle="bold"
+        android:fontFamily="serif"
+        android:layout_marginTop="16dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="AI Dungeon Master"
+        android:textSize="16sp"
+        android:textColor="@color/colorOnSurface"
+        android:layout_marginTop="8dp"/>
+
+</LinearLayout>

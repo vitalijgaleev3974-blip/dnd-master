@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp">
+
+        <!-- Class / Race / Level -->
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                <TextView android:id="@+id/tvCharClass" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="14sp" android:textColor="@color/colorOnSurface"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="4dp">
+                    <TextView android:id="@+id/tvAlignment" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="12sp" android:textColor="@color/colorSystemGray"/>
+                    <TextView android:id="@+id/tvBackground" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="12sp" android:textColor="@color/colorSystemGray"/>
+                    <TextView android:id="@+id/tvXP" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:textSize="12sp" android:textColor="@color/colorAccentGold"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- HP Bar -->
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="❤️ Очки Жизни" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvHp" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="28sp" android:textColor="@color/colorHpRed" android:textStyle="bold" android:layout_marginTop="4dp"/>
+                <TextView android:id="@+id/tvDeathSaves" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray" android:visibility="gone"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginTop="8dp">
+                    <Button android:id="@+id/btnDamage" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:text="💔 Урон" android:backgroundTint="@color/colorHpRed" android:textColor="@color/white" android:textSize="12sp" android:layout_marginEnd="4dp"/>
+                    <Button android:id="@+id/btnHeal" android:layout_width="0dp" android:layout_height="36dp" android:layout_weight="1" android:text="💚 Лечить" android:backgroundTint="@color/colorHpGreen" android:textColor="@color/white" android:textSize="12sp" android:layout_marginStart="4dp"/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Combat Stats Row -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp" app:cardBackgroundColor="@color/colorSurface" app:cardCornerRadius="8dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="КД" android:textColor="@color/colorSecondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvAC" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="22sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp" app:cardBackgroundColor="@color/colorSurface" app:cardCornerRadius="8dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ИНИЦ." android:textColor="@color/colorSecondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvInitiative" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="22sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp" app:cardBackgroundColor="@color/colorSurface" app:cardCornerRadius="8dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="СКОР." android:textColor="@color/colorSecondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvSpeed" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="18sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" app:cardBackgroundColor="@color/colorSurface" app:cardCornerRadius="8dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:gravity="center" android:padding="8dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="МАСТЕРСТВО" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                    <TextView android:id="@+id/tvProf" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="22sp" android:textColor="@color/colorAccentGold" android:textStyle="bold"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Ability Scores -->
+        <androidx.cardview.widget.CardView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            app:cardBackgroundColor="@color/colorSurface"
+            app:cardCornerRadius="10dp">
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="12dp">
+                <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ХАРАКТЕРИСТИКИ" android:textColor="@color/colorSecondary" android:textStyle="bold" android:layout_marginBottom="8dp"/>
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+                    <!-- STR -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="СИЛ" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                        <TextView android:id="@+id/tvStrScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvStrMod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray"/>
+                    </LinearLayout>
+                    <!-- DEX -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ЛОВ" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                        <TextView android:id="@+id/tvDexScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvDexMod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray"/>
+                    </LinearLayout>
+                    <!-- CON -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ТЕЛ" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                        <TextView android:id="@+id/tvConScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvConMod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray"/>
+                    </LinearLayout>
+                    <!-- INT -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ИНТ" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                        <TextView android:id="@+id/tvIntScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvIntMod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray"/>
+                    </LinearLayout>
+                    <!-- WIS -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="МДР" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                        <TextView android:id="@+id/tvWisScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvWisMod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray"/>
+                    </LinearLayout>
+                    <!-- CHA -->
+                    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical" android:gravity="center">
+                        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="ХАР" android:textColor="@color/colorSecondary" android:textSize="10sp"/>
+                        <TextView android:id="@+id/tvChaScore" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="20sp" android:textColor="@color/colorOnBackground" android:textStyle="bold"/>
+                        <TextView android:id="@+id/tvChaMod" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="13sp" android:textColor="@color/colorSystemGray"/>
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Hit Dice & Conditions -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:layout_marginEnd="4dp" app:cardBackgroundColor="@color/colorSurface" app:cardCornerRadius="8dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="🎲 Кости хитов" android:textColor="@color/colorSecondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvHitDice" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="14sp" android:textColor="@color/colorOnBackground" android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+            <androidx.cardview.widget.CardView xmlns:app="http://schemas.android.com/apk/res-auto" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" app:cardBackgroundColor="@color/colorSurface" app:cardCornerRadius="8dp">
+                <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="10dp">
+                    <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="⚠️ Состояния" android:textColor="@color/colorSecondary" android:textSize="11sp"/>
+                    <TextView android:id="@+id/tvConditions" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textSize="12sp" android:textColor="@color/colorOnBackground" android:layout_marginTop="2dp"/>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+        </LinearLayout>
+
+        <!-- Inspiration button -->
+        <Button
+            android:id="@+id/btnInspiration"
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:text="✨ Вдохновение"
+            android:backgroundTint="@color/colorDicePurple"
+            android:textColor="@color/white"
+            android:layout_marginBottom="8dp"/>
+
+        <!-- Rest buttons -->
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal">
+            <Button android:id="@+id/btnShortRest" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="😴 Короткий отдых" android:backgroundTint="@color/colorSurfaceVariant" android:textColor="@color/white" android:textSize="12sp" android:layout_marginEnd="4dp"/>
+            <Button android:id="@+id/btnLongRest" android:layout_width="0dp" android:layout_height="44dp" android:layout_weight="1" android:text="🌙 Долгий отдых" android:backgroundTint="@color/colorSurfaceVariant" android:textColor="@color/white" android:textSize="12sp" android:layout_marginStart="4dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</ScrollView>

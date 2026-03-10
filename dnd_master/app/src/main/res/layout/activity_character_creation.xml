@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorBackground">
+
+    <!-- Header -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorSurface"
+        android:padding="12dp">
+        <TextView
+            android:id="@+id/tvStepTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="18sp"
+            android:textColor="@color/colorAccentGold"
+            android:textStyle="bold"
+            android:fontFamily="serif"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <!-- Step 1: Basic Info -->
+    <ScrollView
+        android:id="@+id/stepBasicInfo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <EditText android:id="@+id/etPlayerName" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Имя игрока" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray" android:layout_marginBottom="12dp"/>
+            <EditText android:id="@+id/etCharacterName" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Имя персонажа" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Раса" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <Spinner android:id="@+id/spinnerRace" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+
+            <TextView android:id="@+id/tvSubraceLabel" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Субраса" android:textColor="@color/colorSecondary" android:textStyle="bold" android:visibility="gone"/>
+            <Spinner android:id="@+id/spinnerSubrace" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp" android:visibility="gone"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Класс" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <Spinner android:id="@+id/spinnerClass" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Предыстория" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <Spinner android:id="@+id/spinnerBackground" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginBottom="8dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Мировоззрение" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <Spinner android:id="@+id/spinnerAlignment" android:layout_width="match_parent" android:layout_height="wrap_content"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Step 2: Ability Scores -->
+    <ScrollView
+        android:id="@+id/stepAbilityScores"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp">
+                <Button android:id="@+id/btnRollAllScores" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="🎲 Бросить все" android:backgroundTint="@color/colorPrimary" android:textColor="@color/white" android:layout_marginEnd="4dp"/>
+                <Button android:id="@+id/btnStandardArray" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="📋 Стандарт" android:backgroundTint="@color/colorSurfaceVariant" android:textColor="@color/white" android:layout_marginStart="4dp"/>
+            </LinearLayout>
+
+            <!-- Each ability row -->
+            <include layout="@layout/item_ability_score_row" android:id="@+id/rowStr"/>
+            <!-- We'll use individual TextViews instead for simplicity -->
+
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="СИЛА" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvStr" android:layout_width="50dp" android:layout_height="wrap_content" android:text="8" android:textColor="@color/colorOnBackground" android:textSize="20sp" android:textStyle="bold" android:gravity="center"/>
+                <TextView android:id="@+id/tvStrMod" android:layout_width="50dp" android:layout_height="wrap_content" android:text="-1" android:textColor="@color/colorSystemGray" android:gravity="center"/>
+                <Button android:id="@+id/btnRollStr" android:layout_width="40dp" android:layout_height="36dp" android:text="🎲" android:backgroundTint="@color/colorSurface" android:textColor="@color/white" android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="ЛОВКОСТЬ" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvDex" android:layout_width="50dp" android:layout_height="wrap_content" android:text="8" android:textColor="@color/colorOnBackground" android:textSize="20sp" android:textStyle="bold" android:gravity="center"/>
+                <TextView android:id="@+id/tvDexMod" android:layout_width="50dp" android:layout_height="wrap_content" android:text="-1" android:textColor="@color/colorSystemGray" android:gravity="center"/>
+                <Button android:id="@+id/btnRollDex" android:layout_width="40dp" android:layout_height="36dp" android:text="🎲" android:backgroundTint="@color/colorSurface" android:textColor="@color/white" android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="ТЕЛОСЛОЖЕНИЕ" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvCon" android:layout_width="50dp" android:layout_height="wrap_content" android:text="8" android:textColor="@color/colorOnBackground" android:textSize="20sp" android:textStyle="bold" android:gravity="center"/>
+                <TextView android:id="@+id/tvConMod" android:layout_width="50dp" android:layout_height="wrap_content" android:text="-1" android:textColor="@color/colorSystemGray" android:gravity="center"/>
+                <Button android:id="@+id/btnRollCon" android:layout_width="40dp" android:layout_height="36dp" android:text="🎲" android:backgroundTint="@color/colorSurface" android:textColor="@color/white" android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="ИНТЕЛЛЕКТ" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvInt" android:layout_width="50dp" android:layout_height="wrap_content" android:text="8" android:textColor="@color/colorOnBackground" android:textSize="20sp" android:textStyle="bold" android:gravity="center"/>
+                <TextView android:id="@+id/tvIntMod" android:layout_width="50dp" android:layout_height="wrap_content" android:text="-1" android:textColor="@color/colorSystemGray" android:gravity="center"/>
+                <Button android:id="@+id/btnRollInt" android:layout_width="40dp" android:layout_height="36dp" android:text="🎲" android:backgroundTint="@color/colorSurface" android:textColor="@color/white" android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="МУДРОСТЬ" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvWis" android:layout_width="50dp" android:layout_height="wrap_content" android:text="8" android:textColor="@color/colorOnBackground" android:textSize="20sp" android:textStyle="bold" android:gravity="center"/>
+                <TextView android:id="@+id/tvWisMod" android:layout_width="50dp" android:layout_height="wrap_content" android:text="-1" android:textColor="@color/colorSystemGray" android:gravity="center"/>
+                <Button android:id="@+id/btnRollWis" android:layout_width="40dp" android:layout_height="36dp" android:text="🎲" android:backgroundTint="@color/colorSurface" android:textColor="@color/white" android:padding="0dp"/>
+            </LinearLayout>
+            <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:layout_marginBottom="8dp" android:gravity="center_vertical">
+                <TextView android:layout_width="80dp" android:layout_height="wrap_content" android:text="ХАРИЗМА" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+                <TextView android:id="@+id/tvCha" android:layout_width="50dp" android:layout_height="wrap_content" android:text="8" android:textColor="@color/colorOnBackground" android:textSize="20sp" android:textStyle="bold" android:gravity="center"/>
+                <TextView android:id="@+id/tvChaMod" android:layout_width="50dp" android:layout_height="wrap_content" android:text="-1" android:textColor="@color/colorSystemGray" android:gravity="center"/>
+                <Button android:id="@+id/btnRollCha" android:layout_width="40dp" android:layout_height="36dp" android:text="🎲" android:backgroundTint="@color/colorSurface" android:textColor="@color/white" android:padding="0dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Step 3: Backstory -->
+    <ScrollView
+        android:id="@+id/stepBackstory"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Предыстория персонажа" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <EditText android:id="@+id/etBackstory" android:layout_width="match_parent" android:layout_height="120dp" android:hint="Откуда ты? Что привело тебя к приключениям?" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray" android:gravity="top" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Черты характера" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <EditText android:id="@+id/etTraits" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Например: Я всегда сохраняю спокойствие" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Идеалы" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <EditText android:id="@+id/etIdeals" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Во что ты веришь?" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Привязанности" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <EditText android:id="@+id/etBonds" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Кто или что важно для тебя?" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray" android:layout_marginBottom="12dp"/>
+
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Слабости" android:textColor="@color/colorSecondary" android:textStyle="bold"/>
+            <EditText android:id="@+id/etFlaws" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Твои слабости и пороки" android:textColor="@color/colorOnBackground" android:textColorHint="@color/colorSystemGray"/>
+        </LinearLayout>
+    </ScrollView>
+
+    <!-- Navigation -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:background="@color/colorSurface"
+        android:padding="12dp">
+
+        <Button
+            android:id="@+id/btnPrev"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="← Назад"
+            android:backgroundTint="@color/colorSurfaceVariant"
+            android:textColor="@color/white"
+            android:layout_marginEnd="4dp"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btnNext"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="Далее →"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"
+            android:layout_marginStart="4dp"/>
+
+        <Button
+            android:id="@+id/btnFinish"
+            android:layout_width="0dp"
+            android:layout_height="44dp"
+            android:layout_weight="1"
+            android:text="✅ Создать"
+            android:backgroundTint="@color/colorHpGreen"
+            android:textColor="@color/white"
+            android:visibility="gone"/>
+    </LinearLayout>
+
+</LinearLayout>

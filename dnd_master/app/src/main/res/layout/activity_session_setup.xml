@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorBackground">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:layout_marginBottom="20dp">
+
+            <ImageButton
+                android:id="@+id/btnBack"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_media_previous"
+                android:tint="@color/colorOnSurface"/>
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Новое приключение"
+                android:textSize="22sp"
+                android:textColor="@color/colorAccentGold"
+                android:textStyle="bold"
+                android:fontFamily="serif"
+                android:paddingStart="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Название кампании"
+            android:textColor="@color/colorSecondary"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etSessionName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Например: Проклятие Страда"
+            android:textColor="@color/colorOnBackground"
+            android:textColorHint="@color/colorSystemGray"
+            android:layout_marginBottom="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Выбери ИИ-Мастера"
+            android:textColor="@color/colorSecondary"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <RadioGroup
+            android:id="@+id/rgAiProvider"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="16dp">
+
+            <RadioButton
+                android:id="@+id/rbClaude"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Claude (Anthropic)"
+                android:textColor="@color/colorOnBackground"
+                android:checked="true"/>
+
+            <RadioButton
+                android:id="@+id/rbGemini"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Gemini (Google)"
+                android:textColor="@color/colorOnBackground"/>
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="API ключ"
+            android:textColor="@color/colorSecondary"
+            android:textSize="14sp"
+            android:textStyle="bold"/>
+
+        <EditText
+            android:id="@+id/etApiKey"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Claude API ключ (начинается с sk-ant-)"
+            android:textColor="@color/colorOnBackground"
+            android:textColorHint="@color/colorSystemGray"
+            android:inputType="textPassword"
+            android:layout_marginBottom="8dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Получи ключ на console.anthropic.com (Claude) или aistudio.google.com (Gemini)"
+            android:textSize="12sp"
+            android:textColor="@color/colorSystemGray"
+            android:layout_marginBottom="32dp"/>
+
+        <Button
+            android:id="@+id/btnCreateSession"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:text="🗡️ Начать приключение"
+            android:textSize="16sp"
+            android:backgroundTint="@color/colorPrimary"
+            android:textColor="@color/white"/>
+
+    </LinearLayout>
+</ScrollView>
